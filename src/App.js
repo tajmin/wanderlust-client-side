@@ -1,10 +1,28 @@
 import logo from './logo.svg';
 import './App.css';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import Header from './Pages/Shared/Header/Header';
+import AuthProvider from './context/AuthProvider';
+import Login from './Pages/Login/Login';
+import Signup from './Pages/Signup/Signup';
 
 function App() {
   return (
     <div className="App">
-      <h1>Test</h1>
+      <AuthProvider>
+        <BrowserRouter>
+          <Header></Header>
+          <Switch>
+
+            <Route path="/signup">
+              <Signup></Signup>
+            </Route>
+            <Route path="/login">
+              <Login></Login>
+            </Route>
+          </Switch>
+        </BrowserRouter>
+      </AuthProvider>
     </div>
   );
 }
