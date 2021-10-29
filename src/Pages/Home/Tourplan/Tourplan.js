@@ -6,7 +6,7 @@ const Tourplan = (props) => {
     const { _id, title, location, price, description, imageURL } = props.tourplan;
     const history = useHistory();
 
-    const url = `/service-info/${_id}`;
+    const url = `/plan-details/${_id}`;
 
     const handleBooking = () => {
         history.push(url);

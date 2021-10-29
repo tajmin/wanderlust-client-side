@@ -6,6 +6,7 @@ import AuthProvider from './context/AuthProvider';
 import Login from './Pages/Login/Login';
 import Signup from './Pages/Signup/Signup';
 import Home from './Pages/Home/Home/Home';
+import TourplanDetails from './Pages/TourplanDetails/TourplanDetails';
 
 function App() {
   return (
@@ -19,6 +20,12 @@ function App() {
             </Route>
             <Route path="/home">
               <Home></Home>
+            </Route>
+            <Route path="/plan-details/:id">
+              <TourplanDetails></TourplanDetails>
+            </Route>
+            <Route path="/booking/:id">
+
             </Route>
             <Route path="/signup">
               <Signup></Signup>
