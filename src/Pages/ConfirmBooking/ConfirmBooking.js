@@ -16,7 +16,13 @@ const ConfirmBooking = () => {
     }, [])
 
     const onSubmit = data => {
-        data.planId = id;
+        data.plan = {
+            id: id,
+            imageURL: tourDetails.imageURL,
+            title: tourDetails.title,
+            price: tourDetails.price
+        }
+
         fetch('https://infinite-sea-11636.herokuapp.com/booking', {
             method: 'POST',
             headers: {
