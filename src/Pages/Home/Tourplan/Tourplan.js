@@ -6,7 +6,7 @@ const Tourplan = (props) => {
     const { _id, title, location, price, description, imageURL } = props.tourplan;
     const history = useHistory();
 
-    const url = `/plan-details/${_id}`;
+    const url = `/confirm-booking/${_id}`;
 
     const handleBooking = () => {
         history.push(url);
@@ -18,6 +18,7 @@ const Tourplan = (props) => {
             <div className="px-6 text-left">
                 <div className="h-3/4 xl:h-2/3">
                     <h2 className="text-lg xl:text-2xl font-bold uppercase">{title}</h2>
+                    <h4>From ${price}</h4>
                     <p>{description.slice(0, 100)} ...</p>
                 </div>
                 <button onClick={handleBooking} className="bg-green-500 px-5 py-2 mt-2 xl:mt-0 xl:mt-1 text-white">Book Now <ChevronRightIcon className="inline-block w-6 animate-ping"></ChevronRightIcon></button>

@@ -23,7 +23,7 @@ const Booking = () => {
                 console.log(result);
                 if (result.insertedId) {
                     alert('order processed successfully!');
-                    // reset();
+                    reset();
                 }
             })
     };
