@@ -26,6 +26,23 @@ const MyOrders = () => {
         }
     }, [user])
 
+    const handleCancellation = (id) => {
+        const confirmDelete = window.confirm('Confirm delete this user?');
+        if (confirmDelete) {
+            fetch(`http://localhost:5000/booking/${id}`, {
+                method: 'DELETE'
+            })
+                .then(res => res.json())
+                .then(data => {
+                    if (data.deletedCount) {
+                        const restOrders = myOrders.filter(item => item._id !== id);
+                        setMyOrders(restOrders);
+                        alert('Order Cancelled Successfully.');
+                    }
+                });
+        }
+    }
+
     return (
         <div className="container mx-auto">
             {
@@ -33,7 +50,7 @@ const MyOrders = () => {
                     <img className="h-32" src={order.plan.imageURL} alt="" />
                     <h2 className="m-auto text-xl font-semibold">{order.plan.title}</h2>
                     <h2 className="m-auto text-xl font-semibold text-red-500">${order.plan.price}</h2>
-                    <button className="bg-red-400 px-6 py-4 text-white m-auto">Cancel Booking</button>
+                    <button onClick={() => handleCancellation(order._id)} className="bg-red-400 px-6 py-4 text-white m-auto">Cancel Booking</button>
                 </div>)
             }
         </div>
