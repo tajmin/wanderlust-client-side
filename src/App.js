@@ -5,6 +5,7 @@ import Header from './Pages/Shared/Header/Header';
 import AuthProvider from './context/AuthProvider';
 import Login from './Pages/Login/Login';
 import Signup from './Pages/Signup/Signup';
+import Home from './Pages/Home/Home/Home';
 
 function App() {
   return (
@@ -13,7 +14,12 @@ function App() {
         <BrowserRouter>
           <Header></Header>
           <Switch>
-
+            <Route exact path="/">
+              <Home></Home>
+            </Route>
+            <Route path="/home">
+              <Home></Home>
+            </Route>
             <Route path="/signup">
               <Signup></Signup>
             </Route>
