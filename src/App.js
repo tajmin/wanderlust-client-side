@@ -8,6 +8,7 @@ import Signup from './Pages/Signup/Signup';
 import Home from './Pages/Home/Home/Home';
 import ConfirmBooking from './Pages/ConfirmBooking/ConfirmBooking';
 import MyOrders from './Pages/MyOrders/MyOrders';
+import ManageOrders from './Pages/ManageOrders/ManageOrders';
 
 function App() {
   return (
@@ -27,6 +28,9 @@ function App() {
             </Route>
             <Route path="/my-orders">
               <MyOrders></MyOrders>
+            </Route>
+            <Route path="/manage-orders">
+              <ManageOrders></ManageOrders>
             </Route>
             <Route path="/signup">
               <Signup></Signup>

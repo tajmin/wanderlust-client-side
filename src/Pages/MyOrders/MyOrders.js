@@ -11,7 +11,7 @@ const MyOrders = () => {
         if (user.email) {
             userIdentifier.name = user.displayName;
             userIdentifier.email = user.email;
-            fetch('http://localhost:5000/my-bookings', {
+            fetch('https://infinite-sea-11636.herokuapp.com/my-bookings', {
                 method: 'POST',
                 headers: {
                     'content-type': 'application/json'
@@ -19,17 +19,14 @@ const MyOrders = () => {
                 body: JSON.stringify(userIdentifier)
             })
                 .then(res => res.json())
-                .then(result => {
-                    console.log(result);
-                    setMyOrders(result);
-                })
+                .then(result => setMyOrders(result))
         }
     }, [user])
 
     const handleCancellation = (id) => {
-        const confirmDelete = window.confirm('Confirm delete this user?');
+        const confirmDelete = window.confirm('Confirm cancell this booking?');
         if (confirmDelete) {
-            fetch(`http://localhost:5000/booking/${id}`, {
+            fetch(`https://infinite-sea-11636.herokuapp.com/booking/${id}`, {
                 method: 'DELETE'
             })
                 .then(res => res.json())
@@ -37,7 +34,7 @@ const MyOrders = () => {
                     if (data.deletedCount) {
                         const restOrders = myOrders.filter(item => item._id !== id);
                         setMyOrders(restOrders);
-                        alert('Order Cancelled Successfully.');
+                        alert('Booking Cancelled Successfully.');
                     }
                 });
         }

@@ -22,6 +22,7 @@ const ConfirmBooking = () => {
             title: tourDetails.title,
             price: tourDetails.price
         }
+        data.status = false;
 
         fetch('https://infinite-sea-11636.herokuapp.com/booking', {
             method: 'POST',
