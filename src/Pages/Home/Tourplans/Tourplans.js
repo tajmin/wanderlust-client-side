@@ -18,7 +18,7 @@ const Tourplans = () => {
                     <div className="grid grid-cols-1 xl:grid-cols-2 gap-8 p-10 shadow-lg rounded-xl bg-blue-50">
                         {
                             tourplans?.map(item => <Tourplan
-                                key={item.key}
+                                key={item._id}
                                 tourplan={item}
                             >
                             </Tourplan>)

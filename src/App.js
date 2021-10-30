@@ -9,6 +9,9 @@ import Home from './Pages/Home/Home/Home';
 import ConfirmBooking from './Pages/ConfirmBooking/ConfirmBooking';
 import MyOrders from './Pages/MyOrders/MyOrders';
 import ManageOrders from './Pages/ManageOrders/ManageOrders';
+import NewTourPlan from './Pages/NewTourPlan/NewTourPlan';
+import PageNotFound from './Pages/PageNotFound/PageNotFound';
+import PrivateRoute from './Pages/PrivateRoute/PrivateRoute';
 
 function App() {
   return (
@@ -23,20 +26,26 @@ function App() {
             <Route path="/home">
               <Home></Home>
             </Route>
-            <Route path="/confirm-booking/:id">
+            <PrivateRoute path="/confirm-booking/:id">
               <ConfirmBooking></ConfirmBooking>
-            </Route>
-            <Route path="/my-orders">
+            </PrivateRoute>
+            <PrivateRoute path="/my-orders">
               <MyOrders></MyOrders>
-            </Route>
-            <Route path="/manage-orders">
+            </PrivateRoute>
+            <PrivateRoute path="/manage-orders">
               <ManageOrders></ManageOrders>
-            </Route>
+            </PrivateRoute>
+            <PrivateRoute path="/add-new-plan">
+              <NewTourPlan></NewTourPlan>
+            </PrivateRoute>
             <Route path="/signup">
               <Signup></Signup>
             </Route>
             <Route path="/login">
               <Login></Login>
+            </Route>
+            <Route path="/*">
+              <PageNotFound></PageNotFound>
             </Route>
           </Switch>
         </BrowserRouter>
