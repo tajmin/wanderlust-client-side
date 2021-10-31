@@ -8,7 +8,6 @@ import useAuth from '../../../hooks/useAuth';
 
 
 const navigation = [
-    { name: 'About', to: '/about', current: false },
     { name: 'My Orders', to: '/my-orders', current: false },
     { name: 'Manage Orders', to: '/manage-orders', current: false },
     { name: 'Add Tour Plan', to: '/add-new-plan', current: false }
@@ -48,6 +47,8 @@ const Header = () => {
                                 <div className="hidden sm:block sm:ml-6">
                                     <div className="flex space-x-2">
                                         <NavLink to="/home" className="text-base text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md">Home</NavLink>
+                                        <NavLink to="/about" className="text-base text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md">About</NavLink>
+                                        <NavLink to="/refer" className="text-base text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md">Refer</NavLink>
 
                                         {user.email && navigation.map((item) => (
                                             <NavLink key={item.name} to={item.to}
@@ -85,6 +86,7 @@ const Header = () => {
                     <Disclosure.Panel className="sm:hidden">
                         <div className="px-2 pt-2 pb-3 space-y-1 text-left">
                             <NavLink to="/home" className="text-gray-400 hover:bg-gray-200 hover:text-black block px-3 py-2 rounded-md text-base font-medium">Home</NavLink>
+                            <NavLink to="/about" className="text-gray-400 hover:bg-gray-200 hover:text-black block px-3 py-2 rounded-md text-base font-medium">About</NavLink>
                             {user.email && navigation.map((item) => (
                                 <NavLink
                                     key={item.name}

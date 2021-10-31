@@ -1,3 +1,5 @@
+import { faGoogle } from '@fortawesome/free-brands-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState } from 'react';
 import { useHistory } from 'react-router';
 import { NavLink } from 'react-router-dom';
@@ -59,30 +61,30 @@ const Signup = () => {
 
     return (
         <div className="container mx-auto min-h-screen flex">
-            <div className="bg-pink-400 p-8 xl:p-16 m-auto w-full xl:w-1/3">
+            <div className="bg-green-400 p-10 xl:p-16 m-auto w-full xl:w-1/3 text-left rounded-lg shadow-2xl">
                 <form onSubmit={handleSignup}>
                     <div className="py-4">
-                        <label className="block mb-2 font-bold text-white" htmlFor="name">Your Name</label>
-                        <input onBlur={handleNameInput} className="w-full py-2" type="text" name="name" required />
+                        <label className="block mb-2 text-lg font-semibold text-white" htmlFor="name">Your Name</label>
+                        <input onBlur={handleNameInput} className="w-full py-2 border-none rounded" type="text" name="name" required />
                     </div>
                     <div className="py-4">
-                        <label className="block mb-2 font-bold text-white" htmlFor="email">Your Email</label>
-                        <input onBlur={handleEmailInput} className="w-full py-2" type="text" name="email" required />
+                        <label className="block mb-2 text-lg font-semibold text-white" htmlFor="email">Your Email</label>
+                        <input onBlur={handleEmailInput} className="w-full py-2 border-none rounded" type="text" name="email" required />
                     </div>
                     <div className="py-4">
-                        <label className="block mb-2 font-bold text-white" htmlFor="password">Enter Password</label>
-                        <input onBlur={handlePasswordInput} className="w-full py-2" type="password" name="password" required />
+                        <label className="block mb-2 text-lg font-semibold text-white" htmlFor="password">Enter Password</label>
+                        <input onBlur={handlePasswordInput} className="w-full py-2 border-none rounded" type="password" name="password" required />
                     </div>
                     <div className="py-4">
-                        <label className="block mb-2 font-bold text-white" htmlFor="confirmPassword">Confirm Password</label>
-                        <input onBlur={handleConfirmPasswordInput} className="w-full py-2" type="password" name="confirmPassword" required />
+                        <label className="block mb-2 text-lg font-semibold text-white" htmlFor="confirmPassword" >Confirm Password</label>
+                        <input onBlur={handleConfirmPasswordInput} className="w-full py-2 border-none rounded" type="password" name="confirmPassword" required />
                     </div>
-                    <input className="px-6 py-1 bg-white hover:bg-black hover:text-white cursor-pointer" type="submit" value="Submit" />
+                    <input className="px-6 py-2 bg-white hover:bg-black hover:text-white cursor-pointer rounded" type="submit" value="Submit" />
                     <div className="my-3"><p className="text-red-400">{error}</p></div>
                 </form>
                 <p className="text-white">Already Registered? <NavLink className="underline hover:text-black" to="/login">Sign in</NavLink></p>
                 <div className="mt-5">
-                    <button onClick={handleGoogleLogin} className="px-8 bg-black text-white py-2 hover:bg-white hover:text-black">Google Sign In</button>
+                    <button onClick={handleGoogleLogin} className="px-8 bg-black text-white py-2 hover:bg-white hover:text-black rounded"><FontAwesomeIcon icon={faGoogle} /> Google Sign In</button>
                 </div>
             </div>
         </div>

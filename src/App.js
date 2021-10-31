@@ -13,6 +13,8 @@ import NewTourPlan from './Pages/NewTourPlan/NewTourPlan';
 import PageNotFound from './Pages/PageNotFound/PageNotFound';
 import PrivateRoute from './Pages/PrivateRoute/PrivateRoute';
 import Footer from './Pages/Shared/Footer/Footer';
+import About from './Pages/About/About';
+import Refer from './Pages/Refer/Refer';
 
 function App() {
   return (
@@ -26,6 +28,12 @@ function App() {
             </Route>
             <Route path="/home">
               <Home></Home>
+            </Route>
+            <Route path="/about">
+              <About></About>
+            </Route>
+            <Route path="/refer">
+              <Refer></Refer>
             </Route>
             <PrivateRoute path="/confirm-booking/:id">
               <ConfirmBooking></ConfirmBooking>

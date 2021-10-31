@@ -22,10 +22,10 @@ const NewTourPlan = () => {
     };
 
     return (
-        <div>
+        <div className="grid grid-cols-1 lg:grid-cols-2">
             <div className="py-6 px-16 text-left">
-                <h1 className="xl:text-3xl text-gray-500">Add New Tour Plan</h1>
-                <form className="grid grid-cols-1 gap-4 text-left text-gray-500" onSubmit={handleSubmit(onSubmit)}>
+                <h1 className="xl:text-5xl text-gray-500 py-10">Add New Tour Plan</h1>
+                <form className="grid grid-cols-1 gap-6 xl:gap-10 text-left text-gray-500" onSubmit={handleSubmit(onSubmit)}>
                     <label className="block">
                         <span className="font-semibold">Title</span>
                         <input className="mt-2 block w-full px-0.5 border-0 border-b-2 border-gray-200 focus:ring-0 focus:border-green-500 focus:outline-none" defaultValue="" {...register("title", { required: true })} />
@@ -50,8 +50,11 @@ const NewTourPlan = () => {
                         <input className="mt-2 block w-full px-0.5 border-0 border-b-2 border-gray-200 focus:ring-0 focus:border-green-500 focus:outline-none" defaultValue="" {...register("imageURL", { required: true })} />
                         {errors.imageURL && <span className="error">This field is required</span>}
                     </label>
-                    <input className="w-1/3 py-3 rounded hover:bg-blue-600 bg-blue-500 cursor-pointer text-white font-bold" type="submit" value="Submit" />
+                    <input className="w-1/3 py-3 rounded-lg hover:bg-green-600 bg-green-500 cursor-pointer text-white font-bold" type="submit" value="Submit" />
                 </form>
+            </div>
+            <div className="bg-green-400">
+
             </div>
         </div>
     );
