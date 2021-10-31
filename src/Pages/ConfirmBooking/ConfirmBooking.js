@@ -17,7 +17,8 @@ const ConfirmBooking = () => {
         fetch(`https://infinite-sea-11636.herokuapp.com/plan-details/${id}`)
             .then(res => res.json())
             .then(data => {
-                setTourDetails(data)
+                setTourDetails(data);
+                reset(data);
                 setIsLoading(false);
             });
     }, [])
