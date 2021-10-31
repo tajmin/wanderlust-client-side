@@ -12,10 +12,10 @@ const Tourplans = () => {
 
     return (
         <div>
-            <div className="bg-pink-50 pt-8 pb-12">
-                <h1 className="text-2xl lg:text-5xl text-center pb-10 pt-8 xl:pt-14">Our Services</h1>
-                <div className="container mx-auto lg:my-12">
-                    <div className="grid grid-cols-1 xl:grid-cols-2 gap-8 p-10 shadow-lg rounded-xl bg-blue-50">
+            <div className="bg-white pt-8 pb-12">
+                <h1 className="text-3xl lg:text-5xl text-gray-600 text-center py-10 xl:py-14">Tour Plans</h1>
+                <div className="container mx-auto px-8 lg:my-12">
+                    <div className="grid grid-cols-1 xl:grid-cols-3 gap-12">
                         {
                             tourplans?.map(item => <Tourplan
                                 key={item._id}

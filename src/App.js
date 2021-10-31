@@ -12,6 +12,7 @@ import ManageOrders from './Pages/ManageOrders/ManageOrders';
 import NewTourPlan from './Pages/NewTourPlan/NewTourPlan';
 import PageNotFound from './Pages/PageNotFound/PageNotFound';
 import PrivateRoute from './Pages/PrivateRoute/PrivateRoute';
+import Footer from './Pages/Shared/Footer/Footer';
 
 function App() {
   return (
@@ -48,6 +49,7 @@ function App() {
               <PageNotFound></PageNotFound>
             </Route>
           </Switch>
+          <Footer></Footer>
         </BrowserRouter>
       </AuthProvider>
     </div>
