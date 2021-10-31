@@ -70,17 +70,26 @@ const ManageOrders = () => {
     }
 
     return (
-        <div>
-            <h1>Manage Orders</h1>
-            <div className="container mx-auto py-6">
+        <div className="container mx-auto shadow-2xl my-10 rounded-xl">
+            <h1 className="text-3xl lg:text-5xl text-gray-600 text-center py-10 xl:py-14">Manage All Orders</h1>
+            <div className="container xl:max-w-max px-8 py-8 xl:py-16 mx-auto bg-white">
                 {
-                    allOrders.map((order, index) => <div className="flex bg-green-100 shadow-lg my-4" key={order._id}>
-                        <img className="h-32" src={order.plan.imageURL} alt="" />
-                        <h2 className="m-auto text-xl font-semibold">{order.plan.title}</h2>
-                        <h2 className="m-auto text-xl font-semibold text-red-500">${order.plan.price}</h2>
-                        <span className="bg-yellow-600 m-auto px-4 py-2 rounded-lg">{order.status ? 'Approved' : 'Pending'}</span>
-                        <button onClick={() => handleApproveBooking(index)} className={order.status ? 'bg-green-500 opacity-25 px-6 py-4 m-auto' : 'bg-green-500 px-6 py-4 m-auto'} disabled={order.status}>Approve Booking</button>
-                        <button onClick={() => handleCancellation(order._id)} className="bg-red-400 px-6 py-4 text-white m-auto">Cancel Booking</button>
+                    allOrders.map((order, index) => <div className="flex bg-green-50 shadow-2xl rounded-lg my-4" key={order._id}>
+                        <div className="flex-1 grid lg:grid-cols-6 gap-6 grid-flow-row">
+                            <div>
+                                <img className="xl:h-32 xl:rounded-l-lg" src={order.plan.imageURL} alt="" />
+                            </div>
+                            <h2 className="m-auto text-xl xl:col-span-2 font-semibold">{order.plan.title}</h2>
+                            <div className="flex justify-around">
+                                <h2 className="m-auto text-xl font-semibold text-red-500">${order.plan.price}</h2>
+                                <span className={order.status ? 'bg-green-500 m-auto px-4 py-2 rounded' : 'bg-yellow-600 m-auto px-4 py-2 rounded'}>{order.status ? 'Approved' : 'Pending'}</span>
+                            </div>
+                            <h2 className="m-auto text-lg text-gray-500">{order.email}</h2>
+                            <div className="flex justify-around pb-3 md:pb-0">
+                                <button onClick={() => handleApproveBooking(index)} className={order.status ? 'bg-green-500 opacity-25 px-4 py-2 rounded text-white m-auto' : 'bg-green-500 hover:bg-green-600 px-4 py-2 rounded text-white m-auto'} disabled={order.status}>Approve</button>
+                                <button onClick={() => handleCancellation(order._id)} className="bg-red-500 hover:bg-red-600 px-4 py-2 rounded text-white m-auto">Delete</button>
+                            </div>
+                        </div>
                     </div>)
                 }
             </div>

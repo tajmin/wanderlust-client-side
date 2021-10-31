@@ -57,15 +57,25 @@ const MyOrders = () => {
     }
 
     return (
-        <div className="container mx-auto">
-            {
-                myOrders.map(order => <div className="flex bg-green-100 shadow-lg my-4" key={order._id}>
-                    <img className="h-32" src={order.plan.imageURL} alt="" />
-                    <h2 className="m-auto text-xl font-semibold">{order.plan.title}</h2>
-                    <h2 className="m-auto text-xl font-semibold text-red-500">${order.plan.price}</h2>
-                    <button onClick={() => handleCancellation(order._id)} className="bg-red-400 px-6 py-4 text-white m-auto">Cancel Booking</button>
-                </div>)
-            }
+        <div>
+            <div className="container mx-auto shadow-2xl my-10 rounded-xl">
+                <h1 className="text-3xl lg:text-5xl text-gray-600 text-center py-10 xl:py-14">My Orders</h1>
+                <div className="container xl:max-w-5xl px-4 py-16 mx-auto bg-white">
+                    {
+                        myOrders.map(order => <div className="flex bg-green-50 shadow-2xl rounded-lg my-4" key={order._id}>
+                            <div className="grid lg:grid-cols-5 gap-4 grid-flow-row">
+                                <div>
+                                    <img className="xl:h-32 xl:rounded-l-lg" src={order.plan.imageURL} alt="" />
+                                </div>
+                                <h2 className="m-auto text-xl xl:col-span-2 font-semibold">{order.plan.title}</h2>
+                                <h2 className="m-auto text-xl font-semibold text-red-500">${order.plan.price}</h2>
+                                <button onClick={() => handleCancellation(order._id)} className="bg-red-500 hover:bg-red-600 px-4 py-2 rounded text-white m-auto">Cancel</button>
+
+                            </div>
+                        </div>)
+                    }
+                </div>
+            </div>
         </div>
     );
 };
