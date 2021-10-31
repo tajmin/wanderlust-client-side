@@ -10,7 +10,7 @@ const ClientStories = () => {
                 <div className="flex">
                     <div className="m-auto px-10 py-6">
                         <img className="w-5 md:w-8 mx-auto pb-4" src={quote} alt="" />
-                        <p className="text-lg text-gray-500 italic pb-4">Wonderlust was very fast and efficient in everything they did. EVERYTHING. Loved being able to book everything in the one place, in one transaction. I will most definitely come back!</p>
+                        <p className="text-lg text-gray-500 italic pb-4">Wanderlust was very fast and efficient in everything they did. EVERYTHING. Loved being able to book everything in the one place, in one transaction. I will most definitely come back!</p>
                         <p><span className="text-xl text-gray-600 font-semibold"> - Joshua Braidwood</span> <br />  Alaska, USA</p>
                     </div>
                 </div>
