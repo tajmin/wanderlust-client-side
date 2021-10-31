@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import { useEffect } from 'react';
 import useAuth from '../../hooks/useAuth';
+import spinner from '../../images/spin.gif';
 
 const MyOrders = () => {
     const { user } = useAuth();
     const [myOrders, setMyOrders] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
     const userIdentifier = {};
 
     useEffect(() => {
@@ -19,7 +21,10 @@ const MyOrders = () => {
                 body: JSON.stringify(userIdentifier)
             })
                 .then(res => res.json())
-                .then(result => setMyOrders(result))
+                .then(result => {
+                    setMyOrders(result);
+                    setIsLoading(false);
+                })
         }
     }, [user])
 
@@ -38,6 +43,17 @@ const MyOrders = () => {
                     }
                 });
         }
+    }
+
+    //spinner for loading
+    if (isLoading) {
+        return (
+            <div>
+                <div className="bg-gray-100">
+                    <img className="mx-auto" src={spinner} alt="" />
+                </div>
+            </div>
+        )
     }
 
     return (

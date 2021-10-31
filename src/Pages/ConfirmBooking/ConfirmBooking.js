@@ -2,17 +2,24 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
 import { useForm } from "react-hook-form";
 import useAuth from '../../hooks/useAuth';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faDollarSign, faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
+import spinner from '../../images/spin.gif'
 
 const ConfirmBooking = () => {
     const { id } = useParams();
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
     const { user } = useAuth();
     const [tourDetails, setTourDetails] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
         fetch(`https://infinite-sea-11636.herokuapp.com/plan-details/${id}`)
             .then(res => res.json())
-            .then(data => setTourDetails(data));
+            .then(data => {
+                setTourDetails(data)
+                setIsLoading(false);
+            });
     }, [])
 
     const onSubmit = data => {
@@ -41,17 +48,32 @@ const ConfirmBooking = () => {
             })
     };
 
+    //spinner for loading
+    if (isLoading) {
+        return (
+            <div>
+                <div className="bg-gray-100">
+                    <img className="mx-auto" src={spinner} alt="" />
+                </div>
+            </div>
+        )
+    }
+
     return (
         <div>
             <div className="bg-green-500">
                 <h1 className="xl:text-3xl text-white font-bold py-10">Confirm Booking</h1>
             </div>
             <div className="grid grid-cols-1 xl:grid-cols-5">
-                <div className="col-span-2">
+                <div className="col-span-2 order-last md:order-none">
                     <div className="py-12 px-16 text-left">
                         <h1 className="text-xl xl:text-3xl font-bold">{tourDetails.title}</h1>
-                        <span>Located at {tourDetails.location}</span> <span>From ${tourDetails.price}</span>
-                        <p>{tourDetails.description}</p>
+                        <div className="grid grid-cols-2 pt-4 pb-8 xl:text-xl text-gray-500">
+                            <p className=""><FontAwesomeIcon icon={faMapMarkerAlt} /> {tourDetails.location}</p>
+                            <p className="text-right">From<span className="pl-2 text-green-500 font-bold"><FontAwesomeIcon icon={faDollarSign} />{tourDetails.price}</span> </p>
+                        </div>
+
+                        <p className="text-gray-500 text-lg">{tourDetails.description}</p>
                     </div>
 
                     <div className="py-6 px-16 text-left">
@@ -68,17 +90,17 @@ const ConfirmBooking = () => {
                             </label>
                             <label className="block">
                                 <span className="font-semibold">Address</span>
-                                <input className="mt-2 block w-full px-0.5 border-0 border-b-2 border-gray-200 focus:ring-0 focus:border-green-500 focus:outline-none" placeholder="Address" defaultValue="" {...register("address")} />
+                                <input className="mt-2 block w-full px-0.5 border-0 border-b-2 border-gray-200 focus:ring-0 focus:border-green-500 focus:outline-none" placeholder="" defaultValue="" {...register("address")} />
                             </label>
                             <label className="block">
                                 <span className="font-semibold">City</span>
-                                <input className="mt-2 block w-full px-0.5 border-0 border-b-2 border-gray-200 focus:ring-0 focus:border-green-500 focus:outline-none" placeholder="City" defaultValue="" {...register("city")} />
+                                <input className="mt-2 block w-full px-0.5 border-0 border-b-2 border-gray-200 focus:ring-0 focus:border-green-500 focus:outline-none" placeholder="" defaultValue="" {...register("city")} />
                             </label>
                             <label className="block">
                                 <span className="font-semibold">Phone</span>
-                                <input className="mt-2 block w-full px-0.5 border-0 border-b-2 border-gray-200 focus:ring-0 focus:border-green-500 focus:outline-none" placeholder="phone number" defaultValue="" {...register("phone")} />
+                                <input className="mt-2 block w-full px-0.5 border-0 border-b-2 border-gray-200 focus:ring-0 focus:border-green-500 focus:outline-none" placeholder="" defaultValue="" {...register("phone")} />
                             </label>
-                            <input className="w-1/3 py-3 rounded hover:bg-blue-600 bg-blue-500 cursor-pointer text-white font-bold" type="submit" value="Submit" />
+                            <input className="w-1/3 py-3 rounded hover:bg-green-600 bg-green-500 cursor-pointer text-white font-bold" type="submit" value="Submit" />
                         </form>
                     </div>
                 </div>

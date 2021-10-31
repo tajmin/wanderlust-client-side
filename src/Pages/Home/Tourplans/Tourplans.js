@@ -1,14 +1,31 @@
 import React, { useEffect, useState } from 'react';
 import Tourplan from '../Tourplan/Tourplan';
+import spinner from '../../../images/spin.gif';
 
 const Tourplans = () => {
     const [tourplans, setTourplans] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
+        setIsLoading(true);
         fetch('https://infinite-sea-11636.herokuapp.com/tour-plans')
             .then(res => res.json())
-            .then(data => setTourplans(data));
+            .then(data => {
+                setTourplans(data);
+                setIsLoading(false);
+            });
     }, [])
+
+    //spinner for loading
+    if (isLoading) {
+        return (
+            <div>
+                <div className="bg-gray-100">
+                    <img className="mx-auto" src={spinner} alt="" />
+                </div>
+            </div>
+        )
+    }
 
     return (
         <div>

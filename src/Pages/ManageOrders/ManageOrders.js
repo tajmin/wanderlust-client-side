@@ -1,14 +1,17 @@
 import React, { useState } from 'react';
 import { useEffect } from 'react';
+import spinner from '../../images/spin.gif';
 
 const ManageOrders = () => {
     const [allOrders, setAllOrders] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
         fetch('https://infinite-sea-11636.herokuapp.com/booking')
             .then(res => res.json())
             .then(data => {
                 setAllOrders(data);
+                setIsLoading(false);
             })
     }, [])
 
@@ -53,6 +56,17 @@ const ManageOrders = () => {
                     alert('Booking Approved Successfully!');
                 }
             })
+    }
+
+    //spinner for loading
+    if (isLoading) {
+        return (
+            <div>
+                <div className="bg-gray-100">
+                    <img className="mx-auto" src={spinner} alt="" />
+                </div>
+            </div>
+        )
     }
 
     return (

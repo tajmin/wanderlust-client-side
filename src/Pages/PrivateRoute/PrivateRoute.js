@@ -1,6 +1,7 @@
 import React from 'react';
 import { Redirect, Route } from 'react-router';
 import useAuth from '../../hooks/useAuth';
+import spinner from '../../images/spin.gif'
 
 const PrivateRoute = ({ children, ...rest }) => {
     const { user, loading } = useAuth();
@@ -8,8 +9,10 @@ const PrivateRoute = ({ children, ...rest }) => {
     //spinner
     if (loading) {
         return (
-            <div className=" flex justify-center items-center min-h-screen">
-                <div className="animate-spin rounded-full h-32 w-32 border-t-2 border-b-2 border-pink-500"></div>
+            <div>
+                <div className="bg-gray-100">
+                    <img className="mx-auto" src={spinner} alt="" />
+                </div>
             </div>
         );
     }
