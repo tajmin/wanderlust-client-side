@@ -4,7 +4,7 @@
 
 ### Wanderlust in Brief
 
-Wanderlust is a mobile-friendly SPA website for companies that has anything to do with travel and vacations, including but not limited to  Travel Agents, Travel eCommerce, Tour Guides, Travel Company, Travel Club, Tour Operator, Travel listing Directory, Travel Deals, and Tour Packages. Wanderlust has a list of travel plans/vacation getaways section on the home page and also features user authentication, booking option and procedure for authenticated users, a user dashboard for booking related information and lastly, an admin dashboard for managing all sorts of booking requested by registered users. Wanderslust is a MERN stack projects that stores and loads data from MongoDB cloud database and uses RESTful services.
+Wanderlust is a mobile-friendly SPA website for companies that has anything to do with travel and vacations, including but not limited to  Travel Agents, Travel eCommerce, Tour Guides, Travel Company, Travel Club, Tour Operator, Travel listing Directory, Travel Deals, and Tour Packages. Wanderlust has a list of travel plans/vacation getaways section on the home page and also features user authentication, booking steps for authenticated users, My Orders page for booking related information and lastly, Manage Orders page for managing all sorts of booking requested by registered users. Wanderslust is a MERN stack project that stores and loads data from MongoDB cloud database and uses RESTful services.
 
 ### Key Points
 - Showcases vacation plans offered by the company in brief and dynamically with each plan having a detailed page for booking.
