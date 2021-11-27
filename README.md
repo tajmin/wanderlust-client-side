@@ -1,18 +1,17 @@
-# Wanderlust - A Conceptual Travel Planner Website
+# Wanderlust - Travel Management Website
 
-## Live site [Wanderlust](https://wanderlust-c746b.web.app/).
+## Live site [Wanderlust - hosted on firebase](https://wanderlust-c746b.web.app/).
 
-### Wanderlust in brief
+### Wanderlust in Brief
 
-Wanderlust is a concept website for travel agencies, companies that offer travel and vacation solutions of all sort.
-This project is boasted with user authentication, booking vacation plan, booking and order management etc.
+Wanderlust is a mobile-friendly SPA website for companies that has anything to do with travel and vacations, including but not limited to  Travel Agents, Travel eCommerce, Tour Guides, Travel Company, Travel Club, Tour Operator, Travel listing Directory, Travel Deals, and Tour Packages. Wanderlust has a list of travel plans/vacation getaways section on the home page and also features user authentication, booking option and procedure for authenticated users, a user dashboard for booking related information and lastly, an admin dashboard for managing all sorts of booking requested by registered users. Wanderslust is a MERN stack projects that stores and loads data from MongoDB cloud database and uses RESTful services.
 
-### A few key points about Wanderlust 
+### Key Points
+- Showcases vacation plans offered by the company in brief and dynamically with each plan having a detailed page for booking.
+- Google Sign-in method to facilitate user authentication and help book vacation plans available to only logged in users.
+- My Orders page for the list of bookings made by the user with an option to cancel each booking.
+- Bookings made by all of the users with an option to approve each booking available on the Manage Order page.
+- Add Tour Plan page for adding a new vacation plan.
 
-- Bootstraped with `create-react-app`
-- `Node` and `Express` for backend servers and APIs
-- `Mongodb` as `NoSQL` database, hosted on Mongodb Atlast
-- `Tailwind` is used for CSS and styling
-- `React Hook Form` for handling forms 
-- `Font Awesome` and `HeroIcons` 
-- and lastly, `Firebase` for authentication
+### Built with
+`Create-React-App` `React Router Dom` `React Hook Form` `Tailwind CSS` `Tailwind CSS Forms` `Font Awesome` `HeroIcon` `Headless UI` `Firebase` `Node` `Express` `MongoDB` 
